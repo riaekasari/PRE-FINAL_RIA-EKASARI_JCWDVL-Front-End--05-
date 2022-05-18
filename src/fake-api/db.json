@@ -1,0 +1,42 @@
+{
+  "users": [
+    {
+      "fullName": "Arka Zastam",
+      "username": "arkazt",
+      "email": "arka@gmail.com",
+      "password": "arkaarka",
+      "id": 1
+    },
+    {
+      "fullName": "Sun Rise",
+      "username": "sunrise",
+      "email": "sunrise@gmail.com",
+      "password": "sunrisesunrise",
+      "id": 2
+    },
+    {
+      "fullName": "Regina Sonda",
+      "username": "reginson",
+      "email": "regina@gmail.com",
+      "password": "regina",
+      "id": 3
+    },
+    {
+      "fullName": "Meuni Kanda",
+      "username": "Meunikan",
+      "email": "meuni@gmail.com",
+      "password": "meuni",
+      "id": 4
+    },
+    {
+      "fullName": "Doen Mel",
+      "username": "Doenmel",
+      "email": "doen@gmail.com",
+      "password": "doendoen",
+      "id": 5
+    }
+  ],
+  "transactions": [],
+  "products": [],
+  "carts": []
+}
