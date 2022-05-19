@@ -1,0 +1,33 @@
+.homepage {
+    width: 100%;
+    height: 100vh;
+    background: url('../assets/images/5291450.jpg') no-repeat center center/cover;
+}
+
+.homepage .container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.homepage .content {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem;
+    margin-left: 6rem;
+}
+
+.homepage h1 {
+    color: #3c0d0d;
+}
+
+.homepage .blue {
+    color: var(--primary-color);
+}
+
+@media screen and (max-width:940px) {
+   .homepage .content {
+    margin-left: 1rem;
+   } 
+}

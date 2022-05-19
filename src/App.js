@@ -4,14 +4,11 @@ import './App.css';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import "bootstrap/dist/css/bootstrap.css";
 
-import Home from './pages/Home';
 import Login from './pages/Auth/Login';
 import Register from './pages/Auth/Register';
-import Admin from './pages/Admin';
-import Cart from './pages/Cart';
-import History from './pages/History';
-import ProductDetail from './pages/ProductDetail';
 import MyNavbar from './components/MyNavbar';
+import Homepage from './pages/Homepage';
+
 
 class App extends React.Component {
   render(){
@@ -21,11 +18,7 @@ class App extends React.Component {
         <Switch>
           <Route component={Login} path="/login"/>
           <Route component={Register} path="/register"/>
-          <Route component={Admin} path="/admin"/>
-          <Route component={Cart} path="/cart"/>
-          <Route component={History} path="/history"/>
-          <Route component={ProductDetail} path="/product-detail"/>
-          <Route component={Home} path="/"/>
+          <Route component={Homepage} path="/"/>
         </Switch>
       </BrowserRouter>
     )

@@ -13,14 +13,37 @@ class Register extends React.Component {
         password: "",
     }
 
-    inputHandler = (event) => {
+    inputfullNameHandler = (event) => {
         const value = event.target.value;
-        const name = event.target.name;
+        console.log(event)
 
-        this.setState({ [name]: value });
+        this.setState({ fullName: value });
+    }
+    
+    inputusernameHandler = (event) => {
+        const value = event.target.value;
+        console.log(event)
+
+        this.setState({ username: value });
+    }
+    inputemailHandler = (event) => {
+        const value = event.target.value;
+        console.log(event)
+
+        this.setState({ email: value });
+    }
+    inputpasswordHandler = (event) => {
+        const value = event.target.value;
+        console.log(event)
+
+        this.setState({ password: value });
     }
 
+
+
     registerHandler = () => {
+
+        // console.log (this.state)
         // alert(`fullName: ${this.state.fullName}\nusername: ${this.state.username}\nemail: ${this.state.email}\npassword: ${this.state.password}`);
         const {fullName, username, email, password} = this.state;
         Axios.post(`${API_URL}/users`,{
@@ -54,12 +77,12 @@ class Register extends React.Component {
                         <div className="card">
                             <div className="card-body">
                                 <h5 className="font-weight-bold mb-3">Register</h5>
-                                <input name="fullName" onChange={this.inputHandler} placeholder="Full Name" type="text" className="form-control my-2" />
-                                <input name="username" onChange={this.inputHandler} placeholder="Username" type="text" className="form-control my-2" />
-                                <input name="email" onChange={this.inputHandler} placeholder="Email" type="text" className="form-control my-2" />
-                                <input name="password" onChange={this.inputHandler} placeholder="Password" type="password" className="form-control my-2" />
+                                <input name="fullName" onChange={this.inputfullNameHandler} placeholder="Full Name" type="text" className="form-control my-2" />
+                                <input name="username" onChange={this.inputusernameHandler} placeholder="Username" type="text" className="form-control my-2" />
+                                <input name="email" onChange={this.inputemailHandler} placeholder="Email" type="text" className="form-control my-2" />
+                                <input name="password" onChange={this.inputpasswordHandler} placeholder="Password" type="password" className="form-control my-2" />
                                 <div className="d-flex flex-row justify-content-between align-items-center">
-                                    <button onClick={() => this.props.registerUser(this.state)} className="btn btn-primary mt-2">
+                                    <button onClick={() => this.registerHandler(this.state)} className="btn btn-primary mt-2">
                                         Register
                                     </button>
                                     <Link to="/login">or Login</Link>

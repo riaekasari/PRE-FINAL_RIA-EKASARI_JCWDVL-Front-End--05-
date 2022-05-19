@@ -1,7 +1,9 @@
 import React from "react";
+import Axios from "axios";
 import {Link, Redirect} from "react-router-dom";
 import {loginUser} from '../../redux/actions/user';
 import {connect} from 'react-redux';
+import { API_URL } from "../../constants/api";
 
 class Login extends React.Component {
     state = {
@@ -9,13 +11,34 @@ class Login extends React.Component {
         passowrd: "",
     }
 
-    inputHandler = (event) => {
+    inputusernameHandler = (event) => {
         const value = event.target.value;
-        const name = event.target.name;
 
-        this.setState({ [name]: value });
+        this.setState({ username: value });
+    }
+    inputpasswordHandler = (event) => {
+        const value = event.target.value;
+
+        this.setState({ password: value });
     }
 
+    loginHandler = () => {
+
+        // console.log (this.state)
+        // alert(`fullName: ${this.state.fullName}\nusername: ${this.state.username}\nemail: ${this.state.email}\npassword: ${this.state.password}`);
+        const { username, password} = this.state;
+        Axios.post(`${API_URL}/users/login`,{
+            username,
+            password,
+        })
+        
+        .then(() => {
+            alert("Login Succeed!")
+        })
+        .catch(() => {
+            alert("Failed to Login!")
+        })
+    }
 
     render() {
         if (this.props.userGlobal.id) {
@@ -39,10 +62,10 @@ class Login extends React.Component {
                         <div className="card">
                             <div className="card-body">
                                 <h5 className="font-weight-bold mb-3">Login</h5>
-                                <input onChange={this.inputHandler} name="username" placeholder="Username" type="text" className="form-control my-2"/>
-                                <input onChange={this.inputHandler} name="password"  placeholder="Password" type="password" className="form-control my-2"/>
+                                <input onChange={this.inputusernameHandler} name="username" placeholder="Username" type="text" className="form-control my-2"/>
+                                <input onChange={this.inputpasswordHandler} name="password"  placeholder="Password" type="password" className="form-control my-2"/>
                                 <div className="d-flex flex-row justify-content-between aligh-items-center">
-                                    <button onClick={() => this.props.loginUser(this.state)} className="btn btn-primary mt-2">
+                                    <button onClick={() => this.loginHandler(this.state)} className="btn btn-primary mt-2">
                                         Login
                                     </button>
                                     <Link to="/register">or Register</Link>
